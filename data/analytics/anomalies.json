@@ -1,0 +1,49 @@
+[
+  {
+    "id": "rev-drop-01",
+    "timestamp": "June 1, 11:30 AM",
+    "metric": "revenue",
+    "severity": "critical",
+    "title": "Revenue Dropped 18% vs Forecast",
+    "description": "Actual hourly revenue fell to ₹123,000 against a predicted target of ₹150,000. Anomaly flag triggered by dynamic standard-deviation thresholds in BigQuery ML.",
+    "root_causes": [
+      "Google Ads campaign spend dropped by 34% due to account daily cap limits being hit.",
+      "Mobile checkout error rate elevated to 12.4% (normal baseline is 1.8%).",
+      "Stripe payment gateway API latency spike (+1200ms) on European checkout sessions."
+    ],
+    "recommended_actions": [
+      "Increase daily cap limit on Google Ads Account.",
+      "Inspect checkout logs for mobile browser compatibility errors.",
+      "Enable automatic backup payment gateway routing in Stripe config."
+    ],
+    "demonstrates": [
+      "BigQuery ML",
+      "Anomaly Detection",
+      "Automated Alerting",
+      "Business Analytics",
+      "System Monitoring"
+    ]
+  },
+  {
+    "id": "chk-fail-02",
+    "timestamp": "June 1, 09:15 AM",
+    "metric": "conversions",
+    "severity": "warning",
+    "title": "Mobile Checkout Failure Rate Elevated",
+    "description": "Checkout failure rates on iOS Safari browsers increased from 1.5% to 5.8%. Flagged by rolling average tracking metrics.",
+    "root_causes": [
+      "JavaScript bundle error in Safari browser parsing ES2022 syntax in checkout.js.",
+      "Database connection pool saturation (98% utilization) during peak traffic window."
+    ],
+    "recommended_actions": [
+      "Roll back checkout script to version 2.4.1.",
+      "Scale database connection pool limit and optimize idle timeouts."
+    ],
+    "demonstrates": [
+      "Database Tuning",
+      "Frontend Performance",
+      "Log Analysis",
+      "Root Cause Diagnostics"
+    ]
+  }
+]

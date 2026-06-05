@@ -1,0 +1,15 @@
+{
+  "name": "portfolio-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "backend\\.venv\\Scripts\\python backend/main.py",
+    "dev": "node node_modules/concurrently/dist/bin/concurrently.js \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "build:frontend": "npm run build --prefix frontend",
+    "embed": "backend\\.venv\\Scripts\\python backend/embed.py"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
