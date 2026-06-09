@@ -10,10 +10,29 @@ export default function GitHub() {
     const fetchGitHubData = async () => {
       try {
         const res = await fetch(`${API_BASE_URL}/api/github`);
+        if (!res.ok) {
+          throw new Error(`HTTP error: ${res.status}`);
+        }
         const json = await res.json();
+        if (!json || !json.stats || !json.languages) {
+          throw new Error("Invalid schema from GitHub endpoint");
+        }
         setData(json);
       } catch (err) {
-        console.error("Failed to fetch GitHub details:", err);
+        console.error("Failed to fetch GitHub details, using local fallback:", err);
+        setData({
+          stats: {
+            totalRepos: 8,
+            estimatedCommits: 150,
+            topLanguage: "Python",
+          },
+          languages: [
+            { name: "Python", percentage: 63 },
+            { name: "Jupyter Notebook", percentage: 13 },
+            { name: "JavaScript", percentage: 12 },
+            { name: "Other", percentage: 12 },
+          ],
+        });
       } finally {
         setLoading(false);
       }
