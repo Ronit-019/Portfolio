@@ -5,21 +5,63 @@ import { API_BASE_URL } from "../config";
 export default function GitHub() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const githubUser = import.meta.env.VITE_GITHUB_USERNAME || "Ronit-019";
 
   useEffect(() => {
     const fetchGitHubData = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/api/github`);
+        const res = await fetch(`https://api.github.com/users/${githubUser}/repos?per_page=100`);
         if (!res.ok) {
-          throw new Error(`HTTP error: ${res.status}`);
+          throw new Error(`GitHub API returned status ${res.status}`);
         }
-        const json = await res.json();
-        if (!json || !json.stats || !json.languages) {
-          throw new Error("Invalid schema from GitHub endpoint");
+        const repos = await res.json();
+        if (!Array.isArray(repos)) {
+          throw new Error("Invalid repos response from GitHub API");
         }
-        setData(json);
+
+        const publicRepos = repos.filter((r) => !r.fork);
+        const totalStars = publicRepos.reduce((acc, r) => acc + r.stargazers_count, 0);
+        const totalForks = publicRepos.reduce((acc, r) => acc + r.forks_count, 0);
+
+        const languageCounts = {};
+        publicRepos.forEach((repo) => {
+          const lang = repo.language;
+          if (lang) {
+            languageCounts[lang] = (languageCounts[lang] || 0) + 1;
+          }
+        });
+
+        const totalWithLanguage = Object.values(languageCounts).reduce((a, b) => a + b, 0);
+        let languages = Object.entries(languageCounts)
+          .map(([name, count]) => {
+            const pct = totalWithLanguage > 0 ? Math.round((count / totalWithLanguage) * 100) : 0;
+            return { name, percentage: pct };
+          })
+          .sort((a, b) => b.percentage - a.percentage)
+          .slice(0, 4);
+
+        const topPercentageSum = languages.reduce((acc, l) => acc + l.percentage, 0);
+        if (0 < topPercentageSum && topPercentageSum < 100) {
+          languages.push({
+            name: "Other",
+            percentage: 100 - topPercentageSum,
+          });
+        }
+
+        const topLanguage = languages[0]?.name || "Python";
+
+        setData({
+          stats: {
+            totalRepos: publicRepos.length,
+            totalStars,
+            totalForks,
+            topLanguage,
+            estimatedCommits: 150,
+          },
+          languages,
+        });
       } catch (err) {
-        console.error("Failed to fetch GitHub details, using local fallback:", err);
+        console.error("Failed to fetch GitHub details directly, using local fallback:", err);
         setData({
           stats: {
             totalRepos: 8,
@@ -38,7 +80,7 @@ export default function GitHub() {
       }
     };
     fetchGitHubData();
-  }, []);
+  }, [githubUser]);
 
   // Color mapping for languages
   const getLanguageColorClass = (lang) => {
@@ -81,8 +123,6 @@ export default function GitHub() {
   }
 
   if (!data) return null;
-
-  const githubUser = import.meta.env.VITE_GITHUB_USERNAME || "Ronit-019";
 
   return (
     <div className="flex flex-col gap-6 w-full max-w-5xl mx-auto py-2 animate-in fade-in duration-200">
