@@ -80,7 +80,7 @@ export default function ChatWindow() {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-8rem)] max-w-4xl mx-auto bg-bg-surface border border-border-subtle rounded-xl overflow-hidden shadow-md">
+    <div className="flex flex-col h-[600px] max-w-4xl mx-auto bg-bg-surface border border-border-subtle rounded-xl overflow-hidden shadow-md">
       {/* Messages Scroll Area */}
       <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6 scrollbar-thin">
         {messages.map((msg, index) => (

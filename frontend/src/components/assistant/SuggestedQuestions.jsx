@@ -2,8 +2,9 @@ import { Sparkles } from "lucide-react";
 
 const QUESTIONS = [
   "What did Ronit do during his internship?",
-  "Show SmartCV architecture",
-  "Explain the anomaly detection project",
+  "Show GA4 Anomaly architecture",
+  "Show Statistical Assistant architecture",
+  "Show IPL Analysis architecture",
   "Why should I hire Ronit?",
   "Show his GitHub projects",
 ];

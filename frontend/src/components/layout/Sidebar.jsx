@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import {
   MessageSquare,
-  BarChart3,
   FolderOpen,
   GitBranch,
   BookOpen,
@@ -16,11 +15,10 @@ import clsx from "clsx";
 
 export const NAV_ITEMS = [
   { label: "Assistant", icon: MessageSquare, route: "/assistant" },
-  { label: "Analytics", icon: BarChart3, route: "/analytics" },
   { label: "Projects", icon: FolderOpen, route: "/projects" },
   { label: "Architecture", icon: GitBranch, route: "/architecture" },
-  { label: "Journal", icon: BookOpen, route: "/journal" },
   { label: "Timeline", icon: Clock, route: "/timeline" },
+  { label: "Journal", icon: BookOpen, route: "/journal" },
   { label: "GitHub", icon: Github, route: "/github" },
   { label: "Resume", icon: FileText, route: "/resume" },
 ];
@@ -53,10 +51,13 @@ export default function Sidebar() {
       >
         {/* Header Block */}
         <div className="flex items-center justify-between h-16 px-6 border-b border-border-subtle">
-          <Link href="/assistant" onClick={handleLinkClick} className="flex items-center gap-2 group">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-accent-primary/10 border border-accent-primary/20 group-hover:border-accent-primary/50 transition-all duration-300">
-              <span className="text-sm font-bold text-accent-primary tracking-wider">RO</span>
-            </div>
+          <Link to="/assistant" onClick={handleLinkClick} className="flex items-center gap-2.5 group">
+            <img
+              src="/photo.jpg"
+              alt="Ronit Rajput Avatar"
+              className="w-8 h-8 rounded-full border border-border-active group-hover:border-accent-primary/50 transition-all duration-300 select-none"
+              style={{ objectFit: "cover" }}
+            />
             <div className="flex flex-col">
               <span className="text-sm font-bold text-text-primary tracking-tight">RONIT OS</span>
               <span className="flex items-center gap-1.5 text-[10px] text-text-muted">

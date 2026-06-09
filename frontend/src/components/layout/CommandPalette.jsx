@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Command } from "cmdk";
 import {
   MessageSquare,
-  BarChart3,
   FolderOpen,
   GitBranch,
   BookOpen,
@@ -86,17 +85,6 @@ export default function CommandPalette() {
                   AI Assistant
                 </span>
                 <span className="text-xs text-text-muted">/assistant</span>
-              </Command.Item>
-
-              <Command.Item
-                onSelect={() => runCommand(() => navigate("/analytics"))}
-                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-text-secondary cursor-pointer hover:bg-bg-hover hover:text-text-primary aria-selected:bg-bg-hover aria-selected:text-text-primary transition-all"
-              >
-                <span className="flex items-center gap-3">
-                  <BarChart3 size={16} />
-                  Analytics War Room
-                </span>
-                <span className="text-xs text-text-muted">/analytics</span>
               </Command.Item>
 
               <Command.Item
@@ -204,23 +192,67 @@ export default function CommandPalette() {
               </Command.Item>
 
               <Command.Item
-                onSelect={() => runCommand(() => navigate("/projects/smartcv"))}
+                onSelect={() => runCommand(() => navigate("/projects/ga4-anomaly-intelligence"))}
                 className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-text-secondary cursor-pointer hover:bg-bg-hover hover:text-text-primary aria-selected:bg-bg-hover aria-selected:text-text-primary transition-all"
               >
                 <span className="flex items-center gap-3">
                   <FolderOpen size={16} className="text-accent-primary" />
-                  Show SmartCV Project Details
+                  Show GA4 Anomaly Project Details
                 </span>
-                <span className="text-xs text-text-muted">View SmartCV</span>
+                <span className="text-xs text-text-muted">View GA4 Anomaly</span>
               </Command.Item>
 
               <Command.Item
-                onSelect={() => runCommand(() => navigate("/architecture/smartcv"))}
+                onSelect={() => runCommand(() => navigate("/architecture/ga4-anomaly"))}
                 className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-text-secondary cursor-pointer hover:bg-bg-hover hover:text-text-primary aria-selected:bg-bg-hover aria-selected:text-text-primary transition-all"
               >
                 <span className="flex items-center gap-3">
                   <GitBranch size={16} className="text-accent-primary" />
-                  Show SmartCV Architecture Flow
+                  Show GA4 Anomaly Architecture Flow
+                </span>
+                <span className="text-xs text-text-muted">View Diagram</span>
+              </Command.Item>
+
+              <Command.Item
+                onSelect={() => runCommand(() => navigate("/projects/statistical-analysis-assistant"))}
+                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-text-secondary cursor-pointer hover:bg-bg-hover hover:text-text-primary aria-selected:bg-bg-hover aria-selected:text-text-primary transition-all"
+              >
+                <span className="flex items-center gap-3">
+                  <FolderOpen size={16} className="text-accent-primary" />
+                  Show Assistant Project Details
+                </span>
+                <span className="text-xs text-text-muted">View Assistant</span>
+              </Command.Item>
+
+              <Command.Item
+                onSelect={() => runCommand(() => navigate("/architecture/statistical-analysis-assistant"))}
+                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-text-secondary cursor-pointer hover:bg-bg-hover hover:text-text-primary aria-selected:bg-bg-hover aria-selected:text-text-primary transition-all"
+              >
+                <span className="flex items-center gap-3">
+                  <GitBranch size={16} className="text-accent-primary" />
+                  Show Assistant Architecture Flow
+                </span>
+                <span className="text-xs text-text-muted">View Diagram</span>
+              </Command.Item>
+
+              <Command.Item
+                onSelect={() => runCommand(() => navigate("/projects/ipl-web-analysis"))}
+                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-text-secondary cursor-pointer hover:bg-bg-hover hover:text-text-primary aria-selected:bg-bg-hover aria-selected:text-text-primary transition-all"
+              >
+                <span className="flex items-center gap-3">
+                  <FolderOpen size={16} className="text-accent-primary" />
+                  Show IPL Analysis Project Details
+                </span>
+                <span className="text-xs text-text-muted">View IPL Analysis</span>
+              </Command.Item>
+
+              <Command.Item
+                onSelect={() => runCommand(() => navigate("/architecture/ipl-web-analysis"))}
+                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-text-secondary cursor-pointer hover:bg-bg-hover hover:text-text-primary aria-selected:bg-bg-hover aria-selected:text-text-primary transition-all"
+              >
+                <span className="flex items-center gap-3">
+                  <GitBranch size={16} className="text-accent-primary" />
+                  Show IPL Analysis Architecture Flow
                 </span>
                 <span className="text-xs text-text-muted">View Diagram</span>
               </Command.Item>

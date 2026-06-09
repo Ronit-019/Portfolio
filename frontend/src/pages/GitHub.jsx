@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Github, Star, GitFork, ArrowRight, GitBranch, FolderOpen } from "lucide-react";
+import { Github, ArrowRight } from "lucide-react";
 import { API_BASE_URL } from "../config";
 
 export default function GitHub() {
@@ -22,28 +21,6 @@ export default function GitHub() {
     fetchGitHubData();
   }, []);
 
-  // Map repo names to architecture and project slugs
-  const getRepoLinks = (repoName) => {
-    const name = repoName.toLowerCase();
-    let archSlug = "";
-    let projSlug = "";
-
-    if (name.includes("smartcv")) {
-      archSlug = "smartcv";
-      projSlug = "smartcv";
-    } else if (name.includes("data-science-copilot")) {
-      archSlug = "data-science-copilot";
-      projSlug = "data-science-copilot";
-    } else if (name.includes("portfolio")) {
-      archSlug = "analytics-agent";
-      projSlug = "agentic-analytics";
-    } else if (name.includes("real-estate-recommender")) {
-      projSlug = "real-estate-recommender";
-    }
-
-    return { archSlug, projSlug };
-  };
-
   // Color mapping for languages
   const getLanguageColorClass = (lang) => {
     switch (lang.toLowerCase()) {
@@ -53,6 +30,8 @@ export default function GitHub() {
         return "bg-[#3178C6]";
       case "javascript":
         return "bg-[#F1E05A]";
+      case "jupyter notebook":
+        return "bg-[#DA5B0B]";
       case "html":
         return "bg-[#E34C26]";
       case "css":
@@ -112,7 +91,7 @@ export default function GitHub() {
       </div>
 
       {/* Summary KPI Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 select-none">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 select-none">
         <div className="p-4 bg-bg-card border border-border-subtle rounded-xl text-center space-y-1">
           <span className="text-[10px] font-bold text-text-muted uppercase tracking-wider">Repositories</span>
           <p className="text-2xl font-extrabold text-text-primary">{data.stats.totalRepos}</p>
@@ -125,10 +104,6 @@ export default function GitHub() {
           <span className="text-[10px] font-bold text-text-muted uppercase tracking-wider">Top Language</span>
           <p className="text-2xl font-extrabold text-accent-primary">{data.stats.topLanguage}</p>
         </div>
-        <div className="p-4 bg-bg-card border border-border-subtle rounded-xl text-center space-y-1">
-          <span className="text-[10px] font-bold text-text-muted uppercase tracking-wider">Stars Earned</span>
-          <p className="text-2xl font-extrabold text-warning">{data.stats.totalStars}</p>
-        </div>
       </div>
 
       {/* Language breakdown bar chart */}
@@ -140,12 +115,12 @@ export default function GitHub() {
         {/* Continuous horizontal bar stack */}
         <div className="h-3 w-full rounded-full bg-bg-primary overflow-hidden flex">
           {data.languages.map((lang) => (
-            <div
-              key={lang.name}
-              style={{ width: `${lang.percentage}%` }}
-              className={`${getLanguageColorClass(lang.name)} h-full`}
-              title={`${lang.name}: ${lang.percentage}%`}
-            />
+             <div
+               key={lang.name}
+               style={{ width: `${lang.percentage}%` }}
+               className={`${getLanguageColorClass(lang.name)} h-full`}
+               title={`${lang.name}: ${lang.percentage}%`}
+             />
           ))}
         </div>
 
@@ -158,93 +133,6 @@ export default function GitHub() {
               <span className="text-text-muted font-mono">{lang.percentage}%</span>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* Highlighted Repositories */}
-      <div className="space-y-4 select-text">
-        <h3 className="text-lg font-bold text-text-primary select-none">
-          Highlighted Repositories
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {data.featuredRepos.map((repo) => {
-            const { archSlug, projSlug } = getRepoLinks(repo.name);
-
-            return (
-              <div
-                key={repo.name}
-                className="flex flex-col justify-between p-5 bg-bg-card border border-border-subtle rounded-xl hover:border-border-active transition-all shadow-sm"
-              >
-                <div className="space-y-3">
-                  {/* Repo title details */}
-                  <div className="flex items-center justify-between">
-                    <a
-                      href={repo.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-bold text-text-primary hover:text-accent-primary underline flex items-center gap-1.5 transition-colors"
-                    >
-                      <Github size={14} className="text-text-secondary" />
-                      <span>{repo.name}</span>
-                    </a>
-
-                    <div className="flex items-center gap-3 text-xs text-text-secondary font-mono select-none">
-                      <span className="flex items-center gap-1">
-                        <Star size={12} className="text-warning fill-warning" />
-                        {repo.stars}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <GitFork size={12} />
-                        {repo.forks}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-xs text-text-secondary leading-relaxed line-clamp-2">
-                    {repo.description}
-                  </p>
-
-                  {/* Topic badges */}
-                  <div className="flex flex-wrap gap-1.5 pt-1 select-none">
-                    {repo.topics.map((topic) => (
-                      <span
-                        key={topic}
-                        className="px-1.5 py-0.5 text-[9px] font-semibold rounded bg-bg-primary text-text-muted border border-border-subtle/50"
-                      >
-                        {topic}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Subroute CTA Links */}
-                {(archSlug || projSlug) && (
-                  <div className="flex gap-2 border-t border-border-subtle/50 pt-3.5 mt-4 select-none">
-                    {projSlug && (
-                      <Link
-                        to={`/projects/${projSlug}`}
-                        className="flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold text-accent-primary hover:text-white border border-accent-primary/20 hover:bg-accent-primary rounded transition-all cursor-pointer"
-                      >
-                        <FolderOpen size={10} />
-                        <span>View Project</span>
-                      </Link>
-                    )}
-                    {archSlug && (
-                      <Link
-                        to={`/architecture/${archSlug}`}
-                        className="flex items-center gap-1 px-2.5 py-1 text-[10px] font-bold text-accent-secondary hover:text-white border border-accent-secondary/20 hover:bg-accent-secondary rounded transition-all cursor-pointer"
-                      >
-                        <GitBranch size={10} />
-                        <span>Architecture</span>
-                      </Link>
-                    )}
-                  </div>
-                )}
-              </div>
-            );
-          })}
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ Detail-oriented and results-driven Computer Science student specializing in Data
 - **Tools**: Git, GitHub, Docker, Vercel
 
 ## Professional Experience
-### Data Engineering & ML Intern | Future Analytics (Simulated)
+### Data Engineering & ML Intern | Tatvic Analytics
 *June 2025 – August 2025*
 - Engineered an automated business monitoring dashboard incorporating BigQuery ML forecasting and real-time anomaly alerts.
 - Reduced alert noise by 75% by designing an LLM-validation layer using Gemini API to double-check statistical anomalies before page notification.
@@ -25,23 +25,24 @@ Detail-oriented and results-driven Computer Science student specializing in Data
 - Drafted production architecture diagrams and documentation for pipeline handover.
 
 ## Featured Projects
-### 1. SmartCV
-- Developed an AI-powered resume matching application using LangGraph, FAISS vector search, and Gemini.
-- Created multi-agent workflows that parse resumes and cross-reference them against complex job descriptions to score alignment.
-- Structured the application with a clean Streamlit front-end and modular FastAPI backend.
-
-### 2. Data Science Copilot
-- Built an interactive ML assistant that accepts CSV files, performs automated exploratory data analysis (EDA), and generates standard data modeling code.
-- Integrated LLMs to provide explanation of dataset columns, statistical summaries, and model comparison metrics.
-
-### 3. Real Estate Recommender
+### 1. Real Estate Recommender
 - Designed a housing pricing forecast model and recommender system deployed on GCP.
 - Leveraged linear regression and gradient boosting models to evaluate property values based on demographic and feature variables.
 
-### 4. Agentic Analytics Dashboard
-- Built a Datadog-style monitoring center with simulated live metrics, composed charts, and interactive Root Cause analysis logs.
+### 2. GA4 Anomaly Intelligence Platform
+- Built a serverless event stream anomaly pipeline using BigQuery ML, ARIMA forecasting, and Vertex AI Gemini.
+- Engineered a dual-signal anomaly detector and contextual Flask-based validation agent on Cloud Run to suppress false alarm logs.
+
+### 3. Statistical Analysis Assistant
+- Built a dual-engine routing co-pilot directing reporting queries to either LangGraph (BigQuery) or direct GA4 API funnels.
+- Engineered a self-healing validator using offline metadata synonym catalogs and dynamic schema auto-discovery scripts.
+
+### 4. IPL Web Analysis (2008-2024)
+- Built a multi-page Streamlit analytical dashboard mapping 17 seasons of historical IPL match and delivery datasets.
+- Optimized performance over large data scales utilizing pre-filtering, lazy loading, and group aggregations in Pandas.
 
 ## Education
+
 - **Bachelor of Technology in Computer Science and Engineering**
   *Expected Graduation: 2027*
 

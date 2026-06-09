@@ -1,7 +1,7 @@
 # Internship: Data Engineering & ML Intern
 
 ## Overview
-From June 2025 to August 2025, Ronit interned at **Future Analytics** as a Data Engineering & ML Intern. His primary responsibility was building intelligent monitoring tools and optimizing data storage performance for business-critical marketing metrics.
+From June 2025 to August 2025, Ronit interned at **Tatvic Analytics** as a Data Engineering & ML Intern. His primary responsibility was building intelligent monitoring tools and optimizing data storage performance for business-critical marketing metrics.
 
 ## Key Contributions
 - **LLM Alert Filtering**: Developed an LLM-validation layer utilizing Gemini API to reduce statistical alert noise. By prompting the model to check historical contexts and correlation metrics, the system filtered out insignificant anomalies, leading to a **75% reduction in alert noise**.

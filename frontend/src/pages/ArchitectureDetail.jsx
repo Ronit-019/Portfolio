@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { ARCHITECTURE_DATA } from "../data/architecture";
-import { ArrowLeft, BookOpen, AlertTriangle, RefreshCw } from "lucide-react";
+import { ArrowLeft, BookOpen, AlertTriangle, RefreshCw, Figma } from "lucide-react";
 import FlowDiagram from "../components/architecture/FlowDiagram";
 
 export default function ArchitectureDetail() {
@@ -33,13 +33,44 @@ export default function ArchitectureDetail() {
       </div>
 
       {/* Diagram Title block */}
-      <div className="space-y-1 pb-4 border-b border-border-subtle select-none">
-        <h1 className="text-2xl font-bold tracking-tight text-text-primary">
-          {arch.title}
-        </h1>
-        <p className="text-sm text-text-secondary">
-          {arch.description}
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-border-subtle select-none">
+        <div className="space-y-1">
+          <h1 className="text-2xl font-bold tracking-tight text-text-primary">
+            {arch.title}
+          </h1>
+          <p className="text-sm text-text-secondary">
+            {arch.description}
+          </p>
+        </div>
+
+        {arch.figmaUrl && (
+          typeof arch.figmaUrl === "string" ? (
+            <a
+              href={arch.figmaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-lg bg-bg-surface hover:bg-bg-hover border border-border-subtle hover:border-border-active text-text-secondary hover:text-text-primary transition-all duration-300 shadow-sm cursor-pointer self-start sm:self-center"
+            >
+              <Figma size={14} className="text-[#F24E1E]" />
+              <span>Figma Design</span>
+            </a>
+          ) : (
+            <div className="flex gap-2 flex-wrap">
+              {Object.entries(arch.figmaUrl).map(([label, url]) => (
+                <a
+                  key={label}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-bg-surface hover:bg-bg-hover border border-border-subtle hover:border-border-active text-text-secondary hover:text-text-primary transition-all duration-300 shadow-sm cursor-pointer self-start sm:self-center"
+                >
+                  <Figma size={14} className="text-[#F24E1E]" />
+                  <span>{label}</span>
+                </a>
+              ))}
+            </div>
+          )
+        )}
       </div>
 
       {/* React Flow Interactive diagram Canvas */}

@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
 import Assistant from "./pages/Assistant";
-import Analytics from "./pages/Analytics";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import Architecture from "./pages/Architecture";
@@ -20,7 +19,6 @@ export default function App() {
           <Route index element={<Navigate to="/assistant" replace />} />
           
           <Route path="assistant" element={<Assistant />} />
-          <Route path="analytics" element={<Analytics />} />
           
           <Route path="projects" element={<Projects />} />
           <Route path="projects/:slug" element={<ProjectDetail />} />

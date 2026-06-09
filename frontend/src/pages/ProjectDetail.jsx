@@ -38,23 +38,38 @@ export default function ProjectDetail() {
 
       {/* Project Header block */}
       <div className="space-y-3 pb-6 border-b border-border-subtle">
-        <h1 className="text-3xl font-bold tracking-tight text-text-primary">
-          {project.title}
-        </h1>
+        <div className="flex flex-wrap items-center gap-3 select-none">
+          <h1 className="text-3xl font-bold tracking-tight text-text-primary">
+            {project.title}
+          </h1>
+          <span className={`px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full border ${
+            project.type === 'personal' 
+              ? 'bg-success/10 border-success/20 text-success' 
+              : 'bg-accent-primary/10 border-accent-primary/20 text-accent-primary'
+          }`}>
+            {project.type === 'personal' ? 'Personal Project' : 'Internship Project'}
+          </span>
+        </div>
         <p className="text-base text-text-secondary leading-relaxed max-w-3xl">
           {project.tagline}
         </p>
 
         <div className="flex flex-wrap items-center gap-3 pt-3 select-none">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-lg bg-bg-surface hover:bg-bg-hover border border-border-subtle hover:border-border-active text-text-secondary hover:text-text-primary transition-all duration-300 shadow-sm cursor-pointer"
-          >
-            <Github size={14} />
-            <span>Repository on GitHub</span>
-          </a>
+          {project.githubUrl ? (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-lg bg-bg-surface hover:bg-bg-hover border border-border-subtle hover:border-border-active text-text-secondary hover:text-text-primary transition-all duration-300 shadow-sm cursor-pointer"
+            >
+              <Github size={14} />
+              <span>Repository on GitHub</span>
+            </a>
+          ) : (
+            <span className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-lg bg-bg-surface/50 border border-border-subtle/70 text-text-muted cursor-not-allowed">
+              🔒 Proprietary Code (NDA Protected)
+            </span>
+          )}
 
           <Link
             to={`/architecture/${project.architectureSlug}`}

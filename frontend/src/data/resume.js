@@ -1,66 +1,132 @@
 export const RESUME_DATA = {
+  profile: {
+    name: "Ronit Rajput",
+    title: "Data Scientist · Analytics Engineering · Python & ML",
+    summary:
+      "Data scientist with 6 months of production experience at Tatvic Analytics building BigQuery ML forecasting models, anomaly detection systems, and an Agentic AI platform for enterprise analytics automation. Skilled in Python, GA4, BigQuery, and Google Cloud. B.Tech in ICT from Adani University (8.67 CGPA).",
+  },
   experience: [
     {
-      company: "Future Analytics (Simulated)",
-      role: "Data Engineering & ML Intern",
-      duration: "June 2025 – August 2025",
-      contributions: [
-        "Developed an automated business monitoring dashboard integrating BigQuery ML forecasting (ARIMA+) and anomaly alerts.",
-        "Engineered an LLM-validation layer utilizing Gemini API to filter out statistcal alert noise, reducing false positives by 75%.",
-        "Optimized ETL data pipelines, reducing aggregate query execution latencies for marketing dashboards by 40%.",
-        "Documented pipeline schemas, connection pools, and containerized deployment parameters for team handoff."
-      ]
-    }
+      company: "Tatvic Digital Analytics Pvt. Ltd., Ahmedabad",
+      role: "Technical Trainee",
+      duration: "Jan 2026 – Jul 2026",
+      projects: [
+        {
+          name: "GA4 Anomaly Detection Platform",
+          contributions: [
+            "Trained ARIMA_PLUS models in BigQuery ML on 3 KPIs (revenue, conversions, engagement); achieved 90%+ detection accuracy on historical validation data.",
+            "Cut false-positive alert volume by ~75% by routing flagged anomalies through a Vertex AI Gemini validation layer before dispatch.",
+            "Deployed the full nightly pipeline on Cloud Scheduler + Cloud Run with zero persistent compute cost; containerized Flask microservice scales to zero between runs.",
+          ],
+        },
+        {
+          name: "Statistical Analysis Assistant — Agentic Analytics Automation",
+          contributions: [
+            "Architected an agentic AI system to automate 13 recurring analysis types, targeting a reduction in analyst time-per-deliverable from 2–6 hrs to under 30 min.",
+            "Built LangGraph orchestration on Cloud Run with state checkpoints, parallel skill execution, and a human-in-the-loop review gate before client output is released.",
+            "Delivered functional prototypes for funnel drop-off and user persona skills with PPTX/XLSX output.",
+          ],
+        },
+        {
+          name: "E-Commerce Analytics System (Bounty Project)",
+          contributions: [
+            "Built end-to-end GA4 + BigQuery stack for a dual-surface (web + Android) e-commerce business event schema, Server-Side GTM, BigQuery aggregation models, and a Looker Studio business dashboard.",
+          ],
+        },
+      ],
+    },
   ],
   projects: [
     {
-      title: "SmartCV Resume Matcher",
-      slug: "smartcv",
-      summary: "AI-powered resume evaluation engine using LangGraph, FAISS vector search, and Gemini API to critique skill fits."
-    },
-    {
-      title: "Data Science Copilot",
-      command: "ds-copilot",
-      slug: "data-science-copilot",
-      summary: "Exploratory data analysis assistant translating conversational queries into runnable Python Scikit-Learn pipelines."
-    },
-    {
-      title: "Real Estate Recommender",
+      title: "Real Estate ML Decision Support System",
       slug: "real-estate-recommender",
-      summary: "Housing pricing XGBoost prediction model and geographic transit recommender systems deployed on GCP."
+      tech: ["Python", "Scikit-learn", "Streamlit", "BeautifulSoup"],
+      duration: "Jun–Jul 2025",
+      summary:
+        "Scraped 30,000+ listings; trained Random Forest & SVM models at 80%+ accuracy; deployed as a fully interactive Streamlit app with prediction, recommendation, and market insight modules.",
     },
     {
-      title: "Agentic Analytics Dashboard",
-      slug: "agentic-analytics",
-      summary: "Live-telemetry DevOps monitoring dashboard integrating BigQuery predictions and root cause console diagnostics."
-    }
+      title: "IPL Data Analysis Dashboard",
+      slug: "ipl-web-analysis",
+      tech: ["Python", "Pandas", "Streamlit"],
+      duration: "Mar 2025",
+      summary:
+        "Analyzed 17 IPL seasons (~260K records); built Streamlit dashboard with 20+ interactive charts on team wins, player performance, and match outcomes.",
+    },
+    {
+      title: "GA4 Anomaly Intelligence Platform",
+      slug: "ga4-anomaly-intelligence",
+      tech: ["BigQuery ML", "Cloud Run", "Vertex AI"],
+      duration: "Jan–Jul 2026",
+      summary:
+        "Serverless GA4 event anomaly pipeline utilizing BigQuery ML ARIMA+ forecasting, Cloud Scheduler, Cloud Run, and Gemini validation layer.",
+    },
+    {
+      title: "EdTech Analytics Dashboard",
+      slug: "statistical-analysis-assistant",
+      tech: ["Power BI", "Power Query", "DAX"],
+      duration: "May 2025",
+      summary:
+        "Modeled 8,000+ course records; built dynamic regional filters and surfaced content strategy insights across instructor and enrollment dimensions.",
+    },
   ],
   skills: {
-    languages: ["Python (Advanced)", "SQL (BigQuery, PostgreSQL)", "TypeScript", "JavaScript", "HTML5", "CSS3"],
-    frameworks: ["Next.js", "React", "FastAPI", "Streamlit", "LangGraph", "LangChain", "Scikit-Learn", "Pandas", "NumPy"],
-    cloud: ["Google Cloud Platform (GCP)", "BigQuery ML", "Vertex AI (Exposure)", "Vercel"],
-    tools: ["Git", "GitHub", "Docker", "FAISS", "Pinecone", "VS Code", "Terminal"]
+    languages: ["Python", "SQL (BigQuery Standard SQL)"],
+    ml: [
+      "Scikit-learn", "ARIMA_PLUS (BigQuery ML)", "scipy", "statsmodels",
+      "pandas", "NumPy", "Random Forest", "SVM", "k-means", "DBSCAN",
+    ],
+    cloud: [
+      "GCP — BigQuery", "Cloud Run", "Cloud Scheduler", "Vertex AI", "IAM",
+      "Terraform", "GA4", "GTM", "GA4 Data API", "Looker Studio",
+    ],
+    ai: ["LangGraph", "LLM Gateway design", "Vertex AI Gemini", "Prompt Engineering"],
+    viz: ["python-pptx", "openpyxl", "Streamlit", "Power BI", "Matplotlib", "Seaborn", "Plotly"],
   },
+  education: [
+    {
+      degree: "B.Tech — Information & Communication Technology",
+      institution: "Adani University, Ahmedabad",
+      duration: "2022–2026",
+      score: "8.67 CGPA",
+    },
+    {
+      degree: "HSC — Class 12 (Science)",
+      institution: "Vijaynagar Higher Secondary English School",
+      duration: "2022",
+      score: "73%",
+    },
+    {
+      degree: "SSC — Class 10",
+      institution: "Vijaynagar Higher Secondary English School",
+      duration: "2020",
+      score: "83%",
+    },
+  ],
   certifications: [
     {
-      name: "Google Cloud Certified: Associate Cloud Engineer",
-      issuer: "Google Cloud",
-      date: "Dec 2024",
-      credentialId: "GCP-ACE-18290",
-      url: "https://google.com/certification"
+      name: "Google Analytics 4 Certification",
+      issuer: "Google Skillshop",
+      date: "2026",
+      url: "https://skillshop.google.com",
     },
     {
-      name: "LangChain for LLM Application Development",
-      issuer: "DeepLearning.AI",
-      date: "Mar 2025",
-      url: "https://deeplearning.ai"
+      name: "Python Certificate of Accomplishment",
+      issuer: "HackerRank",
+      date: "May 2025",
+      url: "https://hackerrank.com",
     },
     {
-      name: "Python for Data Science and Machine Learning",
-      issuer: "Udemy",
-      date: "Aug 2023",
-      credentialId: "UC-87190",
-      url: "https://udemy.com"
-    }
-  ]
+      name: "Data Science Mentorship Program — Diploma in Python",
+      issuer: "CampusX / CDAC",
+      date: "Jan 2023",
+      url: "https://campusx.in",
+    },
+    {
+      name: "Certificate of Appreciation — Tic-Tac-Toe Hackathon 2025",
+      issuer: "IEEE Student Branch, DA-IICT",
+      date: "2025",
+      url: "#",
+    },
+  ],
 };

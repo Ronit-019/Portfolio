@@ -46,60 +46,100 @@ CACHE_DURATION_SECS = 900.0  # 15 minutes
 def get_mock_github_data() -> Dict[str, Any]:
     return {
         "stats": {
-            "totalRepos": 18,
-            "totalStars": 42,
-            "totalForks": 8,
+            "totalRepos": 8,
+            "totalStars": 0,
+            "totalForks": 0,
             "topLanguage": "Python",
-            "estimatedCommits": 1240,
+            "estimatedCommits": 150,
         },
         "languages": [
-            {"name": "Python", "percentage": 67},
-            {"name": "TypeScript", "percentage": 18},
-            {"name": "JavaScript", "percentage": 9},
-            {"name": "Other", "percentage": 6},
+            {"name": "Python", "percentage": 63},
+            {"name": "Jupyter Notebook", "percentage": 13},
+            {"name": "JavaScript", "percentage": 12},
+            {"name": "Other", "percentage": 12},
         ],
         "featuredRepos": [
             {
-                "name": "SmartCV",
-                "description": "AI-powered resume matching application using LangGraph, FAISS vector search, and Gemini.",
-                "stars": 12,
-                "forks": 3,
+                "name": "IPL-2008-2024-Web-Analysis",
+                "description": "An interactive Streamlit dashboard providing in-depth analysis of IPL team tally, player performance, and match statistics from 2008 to 2024.",
+                "stars": 0,
+                "forks": 0,
                 "language": "Python",
-                "topics": ["langgraph", "fastapi", "faiss", "streamlit", "gemini-api"],
-                "updatedAt": "May 28, 2026",
-                "url": "https://github.com/Ronit-019/SmartCV",
+                "topics": ["streamlit", "pandas", "python", "data-analysis", "cricket-stats"],
+                "updatedAt": "June 11, 2025",
+                "url": "https://github.com/Ronit-019/IPL-2008-2024-Web-Analysis",
             },
             {
-                "name": "Data-Science-Copilot",
-                "description": "An automated exploratory analysis tool generating custom Scikit-Learn training pipelines.",
-                "stars": 9,
-                "forks": 2,
+                "name": "IPL-Web-Analysis",
+                "description": "Exploratory data analysis and python scripts tracking historical IPL datasets.",
+                "stars": 0,
+                "forks": 0,
                 "language": "Python",
-                "topics": ["pandas", "scikit-learn", "streamlit", "openai-api"],
-                "updatedAt": "May 15, 2026",
-                "url": "https://github.com/Ronit-019/Data-Science-Copilot",
+                "topics": ["pandas", "python", "data-analysis", "cricket-stats"],
+                "updatedAt": "April 21, 2025",
+                "url": "https://github.com/Ronit-019/IPL-Web-Analysis",
             },
             {
                 "name": "Portfolio",
-                "description": "Modern developer OS portfolio dashboard integrating BigQuery forecasting and alert filters.",
-                "stars": 8,
-                "forks": 1,
-                "language": "TypeScript",
-                "topics": ["nextjs", "react", "recharts", "reactflow", "tailwind-css"],
-                "updatedAt": "June 2, 2026",
+                "description": "Interactive developer OS portfolio website.",
+                "stars": 0,
+                "forks": 0,
+                "language": "JavaScript",
+                "topics": ["react", "tailwind-css", "vite"],
+                "updatedAt": "June 5, 2026",
                 "url": "https://github.com/Ronit-019/Portfolio",
             },
         ],
         "otherRepos": [
             {
-                "name": "Real-Estate-Recommender",
-                "description": "Pricing predictions and transit recommender engine deployed on Google Cloud App Engine.",
-                "stars": 6,
-                "forks": 1,
+                "name": "CampusCare",
+                "description": "Student welfare or campus management Python system.",
+                "stars": 0,
+                "forks": 0,
                 "language": "Python",
-                "topics": ["xgboost", "gcp-app-engine", "shap", "fastapi"],
-                "updatedAt": "April 20, 2025",
-                "url": "https://github.com/Ronit-019/Real-Estate-Recommender",
+                "topics": ["python"],
+                "updatedAt": "June 2, 2026",
+                "url": "https://github.com/Ronit-019/CampusCare",
+            },
+            {
+                "name": "CODSOFT",
+                "description": "Internship Tasks for CODSOFT.",
+                "stars": 0,
+                "forks": 0,
+                "language": "Jupyter Notebook",
+                "topics": ["data-science", "machine-learning"],
+                "updatedAt": "July 6, 2025",
+                "url": "https://github.com/Ronit-019/CODSOFT",
+            },
+            {
+                "name": "Edtech-Powerbi-Dashboard",
+                "description": "Power BI dashboard for analyzing online courses and EdTech trends.",
+                "stars": 0,
+                "forks": 0,
+                "language": "Other",
+                "topics": ["powerbi", "dashboard", "analytics"],
+                "updatedAt": "June 8, 2025",
+                "url": "https://github.com/Ronit-019/Edtech-Powerbi-Dashboard",
+            },
+            {
+                "name": "Global-Tech-Salaries-Explorer",
+                "description": "Exploratory data analysis of tech salaries worldwide.",
+                "stars": 0,
+                "forks": 0,
+                "language": "Python",
+                "topics": ["python", "data-analysis", "salaries"],
+                "updatedAt": "August 10, 2025",
+                "url": "https://github.com/Ronit-019/Global-Tech-Salaries-Explorer",
+            },
+            {
+                "name": "Indian-Startup-Funding-Case-Study",
+                "description": "Data analysis and visualization of startup funding trends in India.",
+                "stars": 0,
+                "forks": 0,
+                "language": "Python",
+                "topics": ["python", "data-analysis", "funding"],
+                "updatedAt": "May 31, 2025",
+                "url": "https://github.com/Ronit-019/Indian-Startup-Funding-Case-Study",
             },
         ],
     }
@@ -135,17 +175,15 @@ If the user asks to "show", "open", "go to", or "navigate to" a specific section
 
 Supported paths are:
 - AI Assistant: /assistant
-- Analytics War Room: /analytics
 - Projects Command Center: /projects
-- SmartCV Project Details: /projects/smartcv
-- Data Science Copilot Project Details: /projects/data-science-copilot
+- GA4 Anomaly Project Details: /projects/ga4-anomaly-intelligence
 - Real Estate Recommender Project Details: /projects/real-estate-recommender
-- Agentic Analytics Project Details: /projects/agentic-analytics
+- Statistical Analysis Assistant Project Details: /projects/statistical-analysis-assistant
+- IPL Analysis Project Details: /projects/ipl-web-analysis
 - Architecture Gallery: /architecture
-- SmartCV Architecture: /architecture/smartcv
-- Analytics Agent Architecture: /architecture/analytics-agent
-- Forecasting Pipeline Architecture: /architecture/forecasting-pipeline
-- Data Science Copilot Architecture: /architecture/data-science-copilot
+- GA4 Anomaly Architecture: /architecture/ga4-anomaly
+- Statistical Analysis Assistant Architecture: /architecture/statistical-analysis-assistant
+- IPL Analysis Architecture: /architecture/ipl-web-analysis
 - Engineering Journal: /journal
 - Timeline of Growth: /timeline
 - GitHub Intelligence: /github
@@ -288,7 +326,7 @@ async def github_endpoint():
                 "url": repo.get("html_url", "")
             })
 
-        featured_names = ["SmartCV", "Data-Science-Copilot", "Real-Estate-Recommender", "Portfolio"]
+        featured_names = ["IPL-2008-2024-Web-Analysis", "IPL-Web-Analysis", "Portfolio"]
         
         featured_repos = [r for r in all_formatted if any(f.lower() == r["name"].lower() for f in featured_names)]
         other_repos = [r for r in all_formatted if not any(f.lower() == r["name"].lower() for f in featured_names)]
@@ -299,7 +337,7 @@ async def github_endpoint():
                 "totalStars": total_stars,
                 "totalForks": total_forks,
                 "topLanguage": top_language,
-                "estimatedCommits": 1480,
+                "estimatedCommits": 150,
             },
             "languages": languages,
             "featuredRepos": featured_repos if featured_repos else all_formatted[:3],

@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# root-only spec files and assets
+/photo.jpg
+/Ronit_Rajput_Resume-1.pdf
+/*.md
+!/README.md

@@ -150,8 +150,8 @@ class MockLLMProvider(LLMProvider):
         lowercase_prompt = prompt.lower()
         action_block = ""
         
-        if "architecture" in lowercase_prompt or "smartcv" in lowercase_prompt:
-            action_block = '\n\n{"action": "navigate", "path": "/architecture/smartcv", "label": "Open SmartCV Architecture"}'
+        if "architecture" in lowercase_prompt or "anomaly" in lowercase_prompt:
+            action_block = '\n\n{"action": "navigate", "path": "/architecture/ga4-anomaly", "label": "Open GA4 Anomaly Architecture"}'
         elif "project" in lowercase_prompt or "work" in lowercase_prompt:
             action_block = '\n\n{"action": "navigate", "path": "/projects", "label": "Open Projects Command Center"}'
         elif "resume" in lowercase_prompt or "cv" in lowercase_prompt:

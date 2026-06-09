@@ -36,7 +36,7 @@ export interface ResumeData {
 export const RESUME_DATA: ResumeData = {
   experience: [
     {
-      company: "Future Analytics (Simulated)",
+      company: "Tatvic Analytics",
       role: "Data Engineering & ML Intern",
       duration: "June 2025 – August 2025",
       contributions: [
@@ -49,25 +49,24 @@ export const RESUME_DATA: ResumeData = {
   ],
   projects: [
     {
-      title: "SmartCV Resume Matcher",
-      slug: "smartcv",
-      summary: "AI-powered resume evaluation engine using LangGraph, FAISS vector search, and Gemini API to critique skill fits."
-    },
-    {
-      title: "Data Science Copilot",
-      command: "ds-copilot",
-      slug: "data-science-copilot",
-      summary: "Exploratory data analysis assistant translating conversational queries into runnable Python Scikit-Learn pipelines."
-    } as any,
-    {
       title: "Real Estate Recommender",
       slug: "real-estate-recommender",
       summary: "Housing pricing XGBoost prediction model and geographic transit recommender systems deployed on GCP."
     },
     {
-      title: "Agentic Analytics Dashboard",
-      slug: "agentic-analytics",
-      summary: "Live-telemetry DevOps monitoring dashboard integrating BigQuery predictions and root cause console diagnostics."
+      title: "GA4 Anomaly Intelligence Platform",
+      slug: "ga4-anomaly-intelligence",
+      summary: "Serverless GA4 event anomaly pipeline utilizing BigQuery ML forecasting, Cloud Run, and Gemini validation."
+    },
+    {
+      title: "Statistical Analysis Assistant",
+      slug: "statistical-analysis-assistant",
+      summary: "Dual-engine AI analytics co-pilot routing queries to either a LangGraph BigQuery SQL agent or direct GA4 API reporting funnels."
+    },
+    {
+      title: "IPL Web Analysis (2008-2024)",
+      slug: "ipl-web-analysis",
+      summary: "Multi-page Streamlit analytics dashboard using Pandas to process, filter, and aggregate 17 seasons of IPL matches."
     }
   ],
   skills: {
