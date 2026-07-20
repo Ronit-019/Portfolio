@@ -31,35 +31,43 @@ function ExperienceTab() {
             </span>
           </div>
 
-          {/* Sub-projects (accordion) */}
-          <div className="space-y-2">
-            {exp.projects.map((proj, pIdx) => (
-              <div
-                key={pIdx}
-                className="border border-border-subtle rounded-lg overflow-hidden bg-bg-surface"
-              >
-                <button
-                  onClick={() => setOpenProject(openProject === pIdx ? -1 : pIdx)}
-                  className="w-full flex items-center justify-between px-4 py-2.5 text-left cursor-pointer hover:bg-bg-hover/30 transition-colors"
+          {/* Sub-projects or contributions list */}
+          {exp.contributions ? (
+            <ul className="space-y-2 list-disc pl-5 text-xs text-text-secondary leading-relaxed">
+              {exp.contributions.map((bullet, bIdx) => (
+                <li key={bIdx}>{bullet}</li>
+              ))}
+            </ul>
+          ) : exp.projects ? (
+            <div className="space-y-2">
+              {exp.projects.map((proj, pIdx) => (
+                <div
+                  key={pIdx}
+                  className="border border-border-subtle rounded-lg overflow-hidden bg-bg-surface"
                 >
-                  <span className="text-xs font-semibold text-text-primary">{proj.name}</span>
-                  {openProject === pIdx ? (
-                    <ChevronDown size={12} className="text-accent-primary shrink-0" />
-                  ) : (
-                    <ChevronRight size={12} className="text-text-muted shrink-0" />
-                  )}
-                </button>
+                  <button
+                    onClick={() => setOpenProject(openProject === pIdx ? -1 : pIdx)}
+                    className="w-full flex items-center justify-between px-4 py-2.5 text-left cursor-pointer hover:bg-bg-hover/30 transition-colors"
+                  >
+                    <span className="text-xs font-semibold text-text-primary">{proj.name}</span>
+                    {openProject === pIdx ? (
+                      <ChevronDown size={12} className="text-accent-primary shrink-0" />
+                    ) : (
+                      <ChevronRight size={12} className="text-text-muted shrink-0" />
+                    )}
+                  </button>
 
-                {openProject === pIdx && (
-                  <ul className="space-y-2 list-disc pl-8 pr-4 pb-3 text-xs text-text-secondary leading-relaxed animate-in fade-in duration-150">
-                    {proj.contributions.map((bullet, bIdx) => (
-                      <li key={bIdx}>{bullet}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
-          </div>
+                  {openProject === pIdx && (
+                    <ul className="space-y-2 list-disc pl-8 pr-4 pb-3 text-xs text-text-secondary leading-relaxed animate-in fade-in duration-150">
+                      {proj.contributions.map((bullet, bIdx) => (
+                        <li key={bIdx}>{bullet}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       ))}
     </div>
@@ -68,12 +76,15 @@ function ExperienceTab() {
 
 function SkillsTab() {
   const skillGroups = [
-    { label: "Languages", data: RESUME_DATA.skills.languages },
-    { label: "ML & Statistics", data: RESUME_DATA.skills.ml },
-    { label: "Cloud & Data", data: RESUME_DATA.skills.cloud },
-    { label: "AI / Agents", data: RESUME_DATA.skills.ai },
-    { label: "Output & Viz", data: RESUME_DATA.skills.viz },
-  ];
+    { label: "Languages", data: RESUME_DATA.skills.languages || [] },
+    { label: "AI Development", data: RESUME_DATA.skills.ai || [] },
+    { label: "Backend", data: RESUME_DATA.skills.backend || [] },
+    { label: "Machine Learning", data: RESUME_DATA.skills.ml || [] },
+    { label: "Databases", data: RESUME_DATA.skills.databases || [] },
+    { label: "Cloud", data: RESUME_DATA.skills.cloud || [] },
+    { label: "Tools", data: RESUME_DATA.skills.tools || [] },
+    { label: "Libraries", data: RESUME_DATA.skills.libraries || [] },
+  ].filter(group => group.data.length > 0);
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 animate-in fade-in duration-200 select-text">

@@ -20,7 +20,7 @@ export default function ProfileCard() {
         <div className="relative shrink-0">
           <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-accent-primary to-accent-secondary opacity-20 blur-sm scale-105" />
           <img
-            src="/photo.jpg"
+            src="/photo_v2.jpg"
             alt="Ronit Rajput Professional Headshot"
             className="relative w-28 h-28 md:w-32 md:h-32 rounded-full border-2 border-border-active hover:border-accent-primary/60 transition-all duration-300"
             style={{ objectFit: "cover" }}
@@ -34,7 +34,7 @@ export default function ProfileCard() {
               Ronit Rajput
             </h2>
             <p className="text-sm font-medium text-accent-primary">
-              Data Scientist · Analytics Engineer · AI Systems Builder
+              Software Engineer · AI Engineer · Python Developer
             </p>
           </div>
 
