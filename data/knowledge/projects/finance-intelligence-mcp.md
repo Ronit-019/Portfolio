@@ -1,7 +1,7 @@
 # Finance Intelligence MCP Server
 
 ## Overview
-A production-ready Model Context Protocol (MCP) server built in Python that enables AI assistants (like Claude Desktop or Cursor) to securely manage and analyze personal finances locally using a private PostgreSQL database. The server exposes 12 core tools via stdio transport for expense entry, budget management, and analytical queries — all without sending sensitive financial data to external services.
+A production-ready Model Context Protocol (MCP) server built in Python that enables AI assistants (like Claude Desktop or Cursor) to securely manage and analyze personal finances locally using a private PostgreSQL database. The server exposes 12 core tools via stdio transport for expense entry, budget management, and analytical queries, all without sending sensitive financial data to external services.
 
 ## Technical Details
 - **Stack**: Python (>=3.10), FastMCP, PostgreSQL (Supabase / AWS RDS / Local), asyncpg, Matplotlib (Agg backend), openpyxl, python-dotenv

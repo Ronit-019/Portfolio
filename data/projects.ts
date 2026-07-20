@@ -56,7 +56,7 @@ export const PROJECTS_DATA: Project[] = [
     type: "internship",
     title: "GA4 Anomaly Intelligence Platform",
     tagline: "A fully automated, production-grade GA4 anomaly detection pipeline using BigQuery ML, ARIMA forecasting, LLM-based contextual validation, and Cloud Run orchestration to deliver business-critical alerts via email.",
-    problem: "Manually monitoring Google Analytics 4 event streams for anomalies is slow, error-prone, and produces too many false positives — traditional threshold rules cannot adapt to seasonality, weekly patterns, or holiday effects, causing alert fatigue and missed real incidents.",
+    problem: "Manually monitoring Google Analytics 4 event streams for anomalies is slow, error-prone, and produces too many false positives. Traditional threshold rules cannot adapt to seasonality, weekly patterns, or holiday effects, causing alert fatigue and missed real incidents.",
     solution: "Developed a serverless, end-to-end analytics pipeline built entirely on Google Cloud: BigQuery Scheduled Queries aggregate synthetic GA4 events daily, ARIMA_PLUS models forecast expected behavior per metric, a dual-signal anomaly engine classifies deviations statistically, a Flask-based Context Agent deployed on Cloud Run calls Vertex AI Gemini to validate anomalies against active campaigns/news context, and Google Apps Script delivers email alerts.",
     architectureSlug: "ga4-anomaly",
     techStack: [
@@ -72,7 +72,7 @@ export const PROJECTS_DATA: Project[] = [
       "BigQuery streaming inserts caused date serialization errors, table truncation conflicts, and streaming buffer conflicts when the Context Agent tried to write contextualized rows.",
       "Naively applying uniform anomaly thresholds across all metrics caused excessive false positives on revenue metrics which are inherently spiky due to promotions and bulk orders.",
       "Scheduling all BigQuery stages in UTC while the business operates in IST caused partial-day data processing and false anomaly drops during early-morning UTC runs.",
-      "Uncontrolled alerting for every statistical anomaly caused alert fatigue — low-impact or repeated anomalies were drowning out genuinely critical incidents."
+      "Uncontrolled alerting for every statistical anomaly caused alert fatigue. Low-impact or repeated anomalies were drowning out genuinely critical incidents."
     ],
     learnings: [
       "Built a fully synthetic GA4 data generation framework in BigQuery SQL simulating realistic distributions, weekly seasonality multipliers, holiday effects, and probabilistic anomaly injection while keeping schema compatibility.",
@@ -94,7 +94,7 @@ export const PROJECTS_DATA: Project[] = [
     type: "internship",
     title: "Statistical Analysis Assistant",
     tagline: "A dual-engine AI analytics co-pilot that routes natural language questions to either a LangGraph-powered BigQuery SQL agent or a direct GA4 Reporting API pipeline, delivering Gemini-synthesized insights and auto-exported client presentations.",
-    problem: "DA&I analysts spent hours writing complex, deeply nested BigQuery SQL for GA4 event schemas (UNNEST, window functions, QUALIFY clauses), while standard direct API reporting couldn't handle custom multi-touch attribution — and no single tool bridged both paths via a plain-English interface.",
+    problem: "DA&I analysts spent hours writing complex, deeply nested BigQuery SQL for GA4 event schemas (UNNEST, window functions, QUALIFY clauses), while standard direct API reporting couldn't handle custom multi-touch attribution. No single tool bridged both paths via a plain-English interface.",
     solution: "Developed a FastAPI + React platform that intelligently routes each request: complex custom queries go to a self-correcting LangGraph ReAct agent (Gemini 2.5 Pro) that generates date-partitioned SQL, runs a dry-run for GCP cost estimation, and asks for user consent before executing against BigQuery; standard metric requests bypass BigQuery entirely and go through a sequential 8-stage Direct GA4 API pipeline (Gemini 2.0 Flash) with self-healing schema validation. Both tracks synthesize results into Gemini-powered narrative insights and export client-ready PPTX/PDF slide decks automatically.",
     architectureSlug: "statistical-analysis-assistant",
     techStack: [
@@ -106,7 +106,7 @@ export const PROJECTS_DATA: Project[] = [
       { name: "LangGraph", color: "#000000" }
     ],
     challenges: [
-      "GA4 BigQuery schemas use deeply nested repeated records — standard UNNEST queries scanned hundreds of gigabytes unnecessarily, producing massive unexpected GCP billing spikes.",
+      "GA4 BigQuery schemas use deeply nested repeated records. Standard UNNEST queries scanned hundreds of gigabytes unnecessarily, producing massive unexpected GCP billing spikes.",
       "Gemini 2.5 Pro outputs long internal thinking chain blocks before producing the final SQL, which broke string parsers trying to extract the executable query.",
       "The GA4 Direct API's Alpha endpoint for sequential funnel reports uses complex dimension filtering structures that are completely different from standard Beta report requests.",
       "User synonym terms (e.g. 'bounced users', 'drop-off rate') didn't map to valid GA4 API dimension or metric names, causing repeated API failures during query building.",

@@ -1,7 +1,7 @@
 export const ARCHITECTURE_DATA = [
   {
     slug: "finance-intelligence-mcp",
-    title: "Finance Intelligence MCP Server — System Architecture",
+    title: "Finance Intelligence MCP Server: System Architecture",
     description: "Local-first MCP server architecture connecting AI clients to a private PostgreSQL finance database via stdio protocol with headless chart generation.",
     figmaUrl: null,
     nodes: [
@@ -107,7 +107,7 @@ export const ARCHITECTURE_DATA = [
   },
   {
     slug: "job-intelligence-engine",
-    title: "Job Intelligence Engine — System Architecture",
+    title: "Job Intelligence Engine: System Architecture",
     description: "Automated multi-company job scraping pipeline with SPA-aware browser automation, dual-layer HTML cleaning, LLM extraction, and audit-trail PostgreSQL persistence.",
     figmaUrl: null,
     nodes: [
@@ -165,7 +165,7 @@ export const ARCHITECTURE_DATA = [
         type: "default",
         position: { x: 560, y: 220 },
         meta: {
-          purpose: "Strips noise-only HTML nodes (scripts, styles, SVGs), converts to Markdown, then filters out non-recruitment text blocks — reducing token size by 80%+.",
+          purpose: "Strips noise-only HTML nodes (scripts, styles, SVGs), converts to Markdown, then filters out non-recruitment text blocks, reducing token size by 80%+.",
           input: "Raw HTML string",
           output: "Clean, token-efficient markdown",
           limitations: "Keyword filter may discard relevant text if companies use non-standard recruitment language.",
@@ -220,7 +220,7 @@ export const ARCHITECTURE_DATA = [
       { id: "e-repo-postgres", source: "repo", target: "postgres", animated: false, label: "UPSERT + Diff" },
     ],
     lessons: {
-      whyThisDesign: "Dividing scraping, cleaning, extraction, and persistence into isolated layers ensures that changes to scrapers or LLM prompts don't cascade failures into the database layer — each stage has a single clear responsibility.",
+      whyThisDesign: "Dividing scraping, cleaning, extraction, and persistence into isolated layers ensures that changes to scrapers or LLM prompts don't cascade failures into the database layer. Each stage has a single clear responsibility.",
       whatFailed: "Standard synchronous HTTP requests failed to fetch jobs on React/hydration-heavy corporate pages, yielding blank HTML with zero job listings despite returning a 200 status code.",
       whatChanged: "Swapped the HTTP client fetcher for a dynamic headless Playwright engine, allowing each career page to fully render client-side JavaScript in memory before the HTML snapshot is taken for processing.",
     },

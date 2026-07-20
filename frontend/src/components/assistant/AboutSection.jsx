@@ -21,8 +21,8 @@ export default function AboutSection() {
           </p>
           <p>
             When I joined Adani University in 2022 for Information and Communication Technology, 
-            I spent time exploring different areas of technology—from software development 
-            concepts to mobile applications—trying to understand where my curiosity naturally pulled me.
+            I spent time exploring different areas of technology, from software development 
+            concepts to mobile applications, trying to understand where my curiosity naturally pulled me.
           </p>
           <p>
             That curiosity eventually led me to Data Science. What started as learning Python and machine 
@@ -52,7 +52,7 @@ export default function AboutSection() {
                 My path into Data Science wasn't planned from day one. Like many students, I started college 
                 exploring different areas of technology. I spent time learning software development concepts 
                 and experimenting with mobile application development before realizing that what interested 
-                me most wasn't the application itself—it was the data behind it.
+                me most wasn't the application itself. It was the data behind it.
               </p>
               <div className="bg-bg-primary/40 rounded-lg p-4 border border-border-subtle/50 space-y-2">
                 <span className="text-xs font-semibold text-text-primary select-none">
@@ -226,7 +226,7 @@ export default function AboutSection() {
                 engineering, and agentic systems to automate decision-making and solve meaningful business problems.
               </p>
               <blockquote className="border-l-2 border-accent-primary pl-4 py-1 italic text-text-primary bg-bg-primary/30 rounded-r select-none">
-                "The most impactful systems are not the ones that generate insights—they are the ones that help people act on them."
+                "The most impactful systems are not the ones that generate insights. They are the ones that help people act on them."
               </blockquote>
             </div>
           </div>

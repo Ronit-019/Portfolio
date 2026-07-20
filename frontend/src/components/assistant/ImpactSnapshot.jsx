@@ -32,7 +32,7 @@ export default function ImpactSnapshot() {
     },
     {
       icon: GraduationCap,
-      value: "8.67",
+      value: "8.72",
       label: "Academic CGPA",
       description: "B.Tech in Information & Communication Technology from Adani Uni",
       color: "text-text-accent bg-text-accent/5 border-text-accent/15",

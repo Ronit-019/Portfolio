@@ -33,7 +33,7 @@ export default function CVViewerModal({ onClose }) {
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-accent-primary animate-pulse" />
             <span className="text-sm font-semibold text-text-primary">
-              Ronit Rajput — Curriculum Vitae
+              Ronit Rajput | Curriculum Vitae
             </span>
             <span className="text-[10px] font-mono text-text-muted px-2 py-0.5 rounded bg-bg-primary border border-border-subtle">
               PDF

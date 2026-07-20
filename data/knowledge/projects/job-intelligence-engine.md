@@ -12,8 +12,8 @@ An automated, AI-powered multi-company job extraction pipeline that crawls corpo
 ## Key Features
 - **SPA-Aware Scraping**: Playwright Chromium browser with a configurable 5000ms hydration wait period, ensuring React/Next.js career sites fully render before HTML extraction.
 - **Dual-Layer HTML Optimization Pipeline**: 
-  - Phase 1 — HTMLCleaner: Strips all noise-only nodes (scripts, styles, SVGs, hidden elements) using BeautifulSoup4 decomposition before Markdownify conversion.
-  - Phase 2 — CandidateChunkFilter: Tokenizes and discards markdown blocks lacking recruitment keywords (careers, vacancy, hiring, etc.), reducing LLM input token size by 80%+.
+  - Phase 1: HTMLCleaner strips all noise-only nodes (scripts, styles, SVGs, hidden elements) using BeautifulSoup4 decomposition before Markdownify conversion.
+  - Phase 2: CandidateChunkFilter tokenizes and discards markdown blocks lacking recruitment keywords (careers, vacancy, hiring, etc.), reducing LLM input token size by 80%+.
 - **Groq LLM Extraction (Qwen 3 32B)**: Sends cleaned markdown to Groq with a structured job extraction prompt, returning validated JSON arrays of job objects.
 - **Custom JSON Parser** (`ResponseParser.extract_json`): Uses a regex bracket depth tracker to robustly extract JSON arrays from LLM responses even when wrapped in markdown backticks or surrounded by conversation text.
 - **Google Sheets Sync**: CompanySyncService reads active company targets from Google Sheets via OAuth service account (gspread) and upserts them into the PostgreSQL companies table.

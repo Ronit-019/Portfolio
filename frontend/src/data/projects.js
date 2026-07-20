@@ -21,7 +21,7 @@ export const PROJECTS_DATA = [
       "Formulating consistent financial coaching and scoring guidelines. Handing raw financial rows to an LLM without guardrails results in highly subjective, inconsistent, and often hallucinated assessments of financial health.",
     ],
     learnings: [
-      "Implemented an automatic truncation threshold (50 items) inside list_expenses. For larger outputs, the tool generates a clean Excel file using openpyxl, stores it locally, and returns a local file link — keeping the LLM prompt size small while preserving full data access.",
+      "Implemented an automatic truncation threshold (50 items) inside list_expenses. For larger outputs, the tool generates a clean Excel file using openpyxl, stores it locally, and returns a local file link, keeping the LLM prompt size small while preserving full data access.",
       "Configured Matplotlib to use the headless Agg backend explicitly (matplotlib.use('Agg')) prior to import. This ensures spending trend charts are rendered entirely in memory and saved directly to disk, dynamically embedded in the LLM's chat interface.",
       "Built a deterministic 6-KPI scoring engine in src/health.py that calculates a numerical score and letter grade based on budget adherence, MoM spending stability (Coefficient of Variation), savings capacity, discretionary balance, large transaction concentration, and spending trends.",
     ],
@@ -37,7 +37,7 @@ export const PROJECTS_DATA = [
     type: "personal",
     title: "Job Intelligence Engine",
     tagline: "An automated, AI-powered multi-company job extraction pipeline that crawls career sites, filters noise, and parses structured listings into a change-audited PostgreSQL database.",
-    problem: "Job seekers manually checking dozens of corporate career portals waste hours finding active listings, missed updates, or closed positions — corporate job sites lack standardized notification streams, structured APIs, or RSS feeds.",
+    problem: "Job seekers manually checking dozens of corporate career portals waste hours finding active listings, missed updates, or closed positions. Corporate job sites lack standardized notification streams, structured APIs, or RSS feeds.",
     solution: "Built an automated pipeline that synchronizes tracking targets from Google Sheets, scrapes dynamic client-side HTML using Playwright, filters text noise via keyword heuristics and a dual-layer HTML cleaner, and extracts structured job JSON through Groq LLM API, persisting results with full field-level audit trails in PostgreSQL.",
     architectureSlug: "job-intelligence-engine",
     techStack: [
@@ -51,12 +51,12 @@ export const PROJECTS_DATA = [
     ],
     challenges: [
       "Handling dynamically-loaded client-side content (Single-Page Applications). Many modern career websites are built on React or Next.js, returning a blank loading screen initially which causes conventional HTTP scrapers to miss all job listings.",
-      "Excessive token usage and high API costs when processing raw web markup. Direct ingestion of raw pages into the LLM context wastes thousands of tokens on boilerplate headers, footers, and script tags — degrading extraction speed and increasing cost.",
+      "Excessive token usage and high API costs when processing raw web markup. Direct ingestion of raw pages into the LLM context wastes thousands of tokens on boilerplate headers, footers, and script tags, degrading extraction speed and increasing cost.",
       "Maintaining listing version history without duplicate entries. Corporate career portals change job descriptions or close listings regularly, and simple crawling leads to either massive duplication or a loss of historical details.",
     ],
     learnings: [
       "Implemented browser automation using Playwright Chromium with a configurable 5000ms wait/stabilization period, giving client-side scripts sufficient time to execute and hydrate listings before HTML is scraped.",
-      "Developed a dual-layered optimization pipeline: HTMLCleaner strips all noise-only nodes before markdown conversion, and CandidateChunkFilter discards text blocks lacking recruitment keywords — reducing input token size by over 80%.",
+      "Developed a dual-layered optimization pipeline: HTMLCleaner strips all noise-only nodes before markdown conversion, and CandidateChunkFilter discards text blocks lacking recruitment keywords, reducing input token size by over 80%.",
       "Created an intelligent repository layer with a field-level ChangeDetector performing UPSERT on company_id + job_url. Field differences are recorded as change diffs in a job_history table, maintaining a clean audit trail of all revisions.",
     ],
     githubUrl: "https://github.com/Ronit-019/Job-Intelligence-Engine",
@@ -103,7 +103,7 @@ export const PROJECTS_DATA = [
     type: "internship",
     title: "GA4 Anomaly Intelligence Platform",
     tagline: "A fully automated, production-grade GA4 anomaly detection pipeline using BigQuery ML, ARIMA forecasting, LLM-based contextual validation, and Cloud Run orchestration to deliver business-critical alerts via email.",
-    problem: "Manually monitoring Google Analytics 4 event streams for anomalies is slow, error-prone, and produces too many false positives — traditional threshold rules cannot adapt to seasonality, weekly patterns, or holiday effects, causing alert fatigue and missed real incidents.",
+    problem: "Manually monitoring Google Analytics 4 event streams for anomalies is slow, error-prone, and produces too many false positives. Traditional threshold rules cannot adapt to seasonality, weekly patterns, or holiday effects, causing alert fatigue and missed real incidents.",
     solution: "A serverless, end-to-end analytics pipeline built entirely on Google Cloud: BigQuery Scheduled Queries aggregate synthetic GA4 events daily, ARIMA_PLUS models forecast expected behavior per metric, a dual-signal anomaly engine classifies deviations statistically, a Flask-based Context Agent deployed on Cloud Run calls Vertex AI Gemini to validate anomalies against active campaigns/news context, and Google Apps Script delivers email alerts.",
     architectureSlug: "ga4-anomaly",
     techStack: [
@@ -119,7 +119,7 @@ export const PROJECTS_DATA = [
       "BigQuery streaming inserts caused date serialization errors, table truncation conflicts, and streaming buffer conflicts when the Context Agent tried to write contextualized rows.",
       "Naively applying uniform anomaly thresholds across all metrics caused excessive false positives on revenue metrics which are inherently spiky due to promotions and bulk orders.",
       "Scheduling all BigQuery stages in UTC while the business operates in IST caused partial-day data processing and false anomaly drops during early-morning UTC runs.",
-      "Uncontrolled alerting for every statistical anomaly caused alert fatigue — low-impact or repeated anomalies were drowning out genuinely critical incidents."
+      "Uncontrolled alerting for every statistical anomaly caused alert fatigue. Low-impact or repeated anomalies were drowning out genuinely critical incidents."
     ],
     learnings: [
       "Built a fully synthetic GA4 data generation framework in BigQuery SQL simulating realistic distributions, weekly seasonality multipliers, holiday effects, and probabilistic anomaly injection while keeping schema compatibility.",
@@ -141,7 +141,7 @@ export const PROJECTS_DATA = [
     type: "internship",
     title: "Statistical Analysis Assistant",
     tagline: "A dual-engine AI analytics co-pilot that routes natural language questions to either a LangGraph-powered BigQuery SQL agent or a direct GA4 Reporting API pipeline, delivering Gemini-synthesized insights and auto-exported client presentations.",
-    problem: "DA&I analysts spent hours writing complex, deeply nested BigQuery SQL for GA4 event schemas (UNNEST, window functions, QUALIFY clauses), while standard direct API reporting couldn't handle custom multi-touch attribution — and no single tool bridged both paths via a plain-English interface.",
+    problem: "DA&I analysts spent hours writing complex, deeply nested BigQuery SQL for GA4 event schemas (UNNEST, window functions, QUALIFY clauses), while standard direct API reporting couldn't handle custom multi-touch attribution. No single tool bridged both paths via a plain-English interface.",
     solution: "A FastAPI + React platform that intelligently routes each request: complex custom queries go to a self-correcting LangGraph ReAct agent (Gemini 2.5 Pro) that generates date-partitioned SQL, runs a dry-run for GCP cost estimation, and asks for user consent before executing against BigQuery; standard metric requests bypass BigQuery entirely and go through a sequential 8-stage Direct GA4 API pipeline (Gemini 2.0 Flash) with self-healing schema validation. Both tracks synthesize results into Gemini-powered narrative insights and export client-ready PPTX/PDF slide decks automatically.",
     architectureSlug: "statistical-analysis-assistant",
     techStack: [
@@ -153,7 +153,7 @@ export const PROJECTS_DATA = [
       { name: "LangGraph", color: "#000000" }
     ],
     challenges: [
-      "GA4 BigQuery schemas use deeply nested repeated records — standard UNNEST queries scanned hundreds of gigabytes unnecessarily, producing massive unexpected GCP billing spikes.",
+      "GA4 BigQuery schemas use deeply nested repeated records. Standard UNNEST queries scanned hundreds of gigabytes unnecessarily, producing massive unexpected GCP billing spikes.",
       "Gemini 2.5 Pro outputs long internal thinking chain blocks before producing the final SQL, which broke string parsers trying to extract the executable query.",
       "The GA4 Direct API's Alpha endpoint for sequential funnel reports uses complex dimension filtering structures that are completely different from standard Beta report requests.",
       "User synonym terms (e.g. 'bounced users', 'drop-off rate') didn't map to valid GA4 API dimension or metric names, causing repeated API failures during query building.",
