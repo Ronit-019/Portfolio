@@ -38,6 +38,22 @@ export const RESUME_DATA = {
   ],
   projects: [
     {
+      title: "Finance Intelligence MCP Server",
+      slug: "finance-intelligence-mcp",
+      tech: ["Python", "FastMCP", "PostgreSQL", "asyncpg", "Matplotlib"],
+      duration: "Jun–Jul 2026",
+      summary:
+        "Production-ready MCP server exposing 12 tools for AI assistants to manage personal finances locally on PostgreSQL, with a 6-KPI health scoring engine and headless chart generation.",
+    },
+    {
+      title: "Job Intelligence Engine",
+      slug: "job-intelligence-engine",
+      tech: ["Python", "Playwright", "Groq API", "PostgreSQL", "Pydantic"],
+      duration: "Jun–Jul 2026",
+      summary:
+        "Automated pipeline scraping dynamic corporate career sites via Playwright, cutting LLM token overhead by 80%+ with a dual-layer HTML cleaner, and persisting structured jobs with field-level audit trails in PostgreSQL.",
+    },
+    {
       title: "Real Estate ML Decision Support System",
       slug: "real-estate-recommender",
       tech: ["Python", "Scikit-learn", "Streamlit", "BeautifulSoup"],

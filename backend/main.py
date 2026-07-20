@@ -176,11 +176,15 @@ If the user asks to "show", "open", "go to", or "navigate to" a specific section
 Supported paths are:
 - AI Assistant: /assistant
 - Projects Command Center: /projects
+- Finance Intelligence MCP Server Project Details: /projects/finance-intelligence-mcp
+- Job Intelligence Engine Project Details: /projects/job-intelligence-engine
 - GA4 Anomaly Project Details: /projects/ga4-anomaly-intelligence
 - Real Estate Recommender Project Details: /projects/real-estate-recommender
 - Statistical Analysis Assistant Project Details: /projects/statistical-analysis-assistant
 - IPL Analysis Project Details: /projects/ipl-web-analysis
 - Architecture Gallery: /architecture
+- Finance Intelligence MCP Architecture: /architecture/finance-intelligence-mcp
+- Job Intelligence Engine Architecture: /architecture/job-intelligence-engine
 - GA4 Anomaly Architecture: /architecture/ga4-anomaly
 - Statistical Analysis Assistant Architecture: /architecture/statistical-analysis-assistant
 - IPL Analysis Architecture: /architecture/ipl-web-analysis
