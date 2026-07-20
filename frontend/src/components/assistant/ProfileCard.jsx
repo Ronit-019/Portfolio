@@ -52,7 +52,7 @@ export default function ProfileCard() {
             </div>
             <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-bg-surface border border-border-subtle">
               <GraduationCap size={12} className="text-accent-primary" />
-              <span>B.Tech in ICT (8.67 CGPA)</span>
+              <span>B.Tech in ICT (8.72 CGPA)</span>
             </div>
           </div>
 
